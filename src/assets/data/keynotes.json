@@ -45,9 +45,9 @@
   },
   {
     "name": "Irit Katriel",
-    "description": "Irit Katriel is a Principal Software Engineer at Microsoft, a CPython core developer, and a contributor with a strong focus on programming language design and compiler architecture. Recent contributions to Python include the implementation of exception groups (PEP 654), the except* construct, key simplifications to Python’s exception mechanisms, and a major refactor of the CPython bytecode compiler to improve structure, maintainability, and testability. Work on Microsoft’s Python Performance Engineering team further reflects deep involvement in the evolution of Python. Irit has also authored several academic publications.",
+    "description": "Irit Katriel is a software engineer, CPython core developer, and former member of the Faster CPython team. She contributed to PEP 654, Python’s exception system, and major improvements to the CPython compiler. Irit also holds a PhD in Computer Science and a BSc in Psychology.",
     "image": "/images/keynotes/keynote-05.webp",
-    "flag": "/images/flags/israel.webp",
+    "flag": "/images/flags/united-kingdom.webp",
     "linkedin": "https://www.linkedin.com/in/irit-katriel/",
     "github": "https://github.com/iritkatriel",
     "website": "",
