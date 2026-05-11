@@ -39,13 +39,6 @@ export const teamMembers: TeamMember[] = [
     github: 'https://github.com/arendondiosa'
   },
   {
-    name: 'Javier Daza',
-    role: 'Speakers',
-    image: '/images/avatar/javier-daza.webp',
-    linkedin: 'https://www.linkedin.com/in/javierdazaco',
-    x: 'https://twitter.com/@pyjavo'
-  },
-  {
     name: 'Leonardo Romo',
     role: 'Executive assitant',
     image: '/images/avatar/leonardo-romo.webp',
