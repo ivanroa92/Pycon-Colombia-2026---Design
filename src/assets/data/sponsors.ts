@@ -1,4 +1,13 @@
 export type SponsorSize = 'XL' | 'L' | 'M' | 'S' | 'XS'
+export type SponsorTierTitle =
+  | 'Venue Sponsor'
+  | 'Platinum Sponsor'
+  | 'Gold Sponsor'
+  | 'Silver + Sponsor'
+  | 'Silver Sponsor'
+  | 'Bronze Sponsor'
+  | 'Start up Sponsor'
+  | 'Partner'
 
 export type Sponsor = {
   name: string
@@ -7,7 +16,7 @@ export type Sponsor = {
 }
 
 export type SponsorTier = {
-  title: string
+  title: SponsorTierTitle
   size: SponsorSize
   description: string
   sponsors: Sponsor[]
@@ -19,18 +28,24 @@ export const sponsorTiers: SponsorTier[] = [
     size: 'XL',
     description: 'Our main host and venue partner for the conference experience.',
     sponsors: [
-    {
-    name: 'EAFIT - Nodo',
-    logo: '/images/sponsors/eafit.svg',
-    href: 'https://sponsor.com'
-    }
-  ]
+      {
+        name: 'EAFIT - Nodo',
+        logo: '/images/sponsors/eafit.svg',
+        href: 'https://www.eafit.edu.co/sistema-ciencia-tecnologia-innovacion/innovacion-desarrollo-tecnologico/nodo'
+      }
+    ]
   },
   {
     title: 'Platinum Sponsor',
     size: 'L',
     description: 'Top-tier support for PyCon Colombia and the Python community.',
-    sponsors: []
+    sponsors: [
+      {
+        name: 'Aimpoint Digital',
+        logo: '/images/sponsors/aimpoint.svg',
+        href: 'https://aimpointdigital.com/'
+      }
+    ]
   },
   {
     title: 'Gold Sponsor',

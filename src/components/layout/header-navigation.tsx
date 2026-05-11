@@ -44,6 +44,7 @@ type NavigationItem = {
 
 type Navigation = {
   title: string
+  disabled?: boolean
   contentClassName?: string
 } & (
   | {
@@ -185,16 +186,28 @@ const HeaderNavigation = ({
 
             return (
               <NavigationMenuItem key={navItem.title}>
-                <NavigationMenuLink
-                  data-active={isActive}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    'text-muted-foreground! hover:text-foreground! data-[active=true]:text-foreground! bg-transparent! p-0! text-base'
-                  )}
-                  asChild
-                >
-                  <Link href={navItem.href}>{navItem.title}</Link>
-                </NavigationMenuLink>
+                {navItem.disabled ? (
+                  <span
+                    aria-disabled='true'
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'text-muted-foreground! pointer-events-none cursor-not-allowed bg-transparent! p-0! text-base opacity-50'
+                    )}
+                  >
+                    {navItem.title}
+                  </span>
+                ) : (
+                  <NavigationMenuLink
+                    data-active={isActive}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'text-muted-foreground! hover:text-foreground! data-[active=true]:text-foreground! bg-transparent! p-0! text-base'
+                    )}
+                    asChild
+                  >
+                    <Link href={navItem.href}>{navItem.title}</Link>
+                  </NavigationMenuLink>
+                )}
               </NavigationMenuItem>
             )
           }
@@ -233,7 +246,8 @@ const HeaderNavigation = ({
             <NavigationMenuItem key={navItem.title}>
               <NavigationMenuTrigger
                 data-active={hasActiveChild}
-                className='text-muted-foreground! data-[active=true]:text-foreground! bg-transparent! p-0! text-base [&_svg]:size-4'
+                disabled={navItem.disabled}
+                className='text-muted-foreground! data-[active=true]:text-foreground! bg-transparent! p-0! text-base disabled:cursor-not-allowed [&_svg]:size-4'
               >
                 {navItem.title}
               </NavigationMenuTrigger>
@@ -395,15 +409,25 @@ const HeaderNavigationSmallScreen = ({
               const isActive = sectionId ? activeSection === sectionId : pathname?.startsWith(navItem.href)
 
               return (
-                <Link
-                  key={navItem.title}
-                  href={navItem.href}
-                  data-active={isActive}
-                  className='hover:bg-accent data-[active=true]:bg-accent flex items-center gap-2 rounded-sm px-3 py-2 text-sm data-[active=true]:font-medium'
-                  onClick={handleLinkClick}
-                >
-                  {navItem.title}
-                </Link>
+                navItem.disabled ? (
+                  <span
+                    key={navItem.title}
+                    aria-disabled='true'
+                    className='text-muted-foreground flex cursor-not-allowed items-center gap-2 rounded-sm px-3 py-2 text-sm opacity-50'
+                  >
+                    {navItem.title}
+                  </span>
+                ) : (
+                  <Link
+                    key={navItem.title}
+                    href={navItem.href}
+                    data-active={isActive}
+                    className='hover:bg-accent data-[active=true]:bg-accent flex items-center gap-2 rounded-sm px-3 py-2 text-sm data-[active=true]:font-medium'
+                    onClick={handleLinkClick}
+                  >
+                    {navItem.title}
+                  </Link>
+                )
               )
             }
 
@@ -440,7 +464,8 @@ const HeaderNavigationSmallScreen = ({
               <Collapsible key={index} className='w-full'>
                 <CollapsibleTrigger
                   data-active={hasActiveChild}
-                  className='hover:bg-accent group data-[active=true]:bg-accent flex w-full items-center justify-between rounded-sm px-3 py-2 text-sm data-[active=true]:font-medium'
+                  disabled={navItem.disabled}
+                  className='hover:bg-accent group data-[active=true]:bg-accent flex w-full items-center justify-between rounded-sm px-3 py-2 text-sm data-[active=true]:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50'
                 >
                   <div className='flex items-center gap-2'>{navItem.title}</div>
                   <ChevronRightIcon className='size-4 shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-90' />

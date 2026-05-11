@@ -39,14 +39,6 @@ const legalLinks = [
   {
     label: 'Code of Conduct',
     href: '/code-of-conduct'
-  },
-  {
-    label: 'Code of Conduct Enforcement Procedure',
-    href: '/code-of-conduct#enforcement'
-  },
-  {
-    label: 'Health & Safety Policy',
-    href: '/code-of-conduct#health-safety'
   }
 ]
 

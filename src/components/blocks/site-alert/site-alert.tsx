@@ -28,7 +28,7 @@ const SiteAlert = ({ className }: { className?: string }) => {
       <div className='flex max-w-7xl flex-1 items-center justify-center gap-3 pr-9 text-center'>
         <MegaphoneIcon className='hidden size-4 shrink-0 sm:block' />
         <p className='text-balance'>
-          PyCon Colombia 2026 Call for Speakers.{' '}
+          PyCon Colombia 2026 Call for Speakers ends May 12.{' '}
           <Link
             href={callForSpeakersUrl}
             target='_blank'

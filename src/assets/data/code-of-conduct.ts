@@ -2,7 +2,13 @@ export type CodeOfConductSection = {
   id: string
   title: string
   paragraphs: string[]
+  listTitle?: string
   items?: string[]
+  itemsStyle?: 'cards'
+  cta?: {
+    label: string
+    href: string
+  }
 }
 
 export const codeOfConduct = {
@@ -14,60 +20,44 @@ export const codeOfConduct = {
   contactEmail: 'Hello@pycon.co',
   sections: [
     {
-      id: 'purpose',
-      title: 'Purpose',
+      id: 'introduction',
+      title: 'Introduction',
       paragraphs: [
-        'PyCon Colombia gathers professionals, enthusiasts, students, speakers, sponsors, volunteers, and community members around the Python programming language.',
-        'This Code of Conduct exists to help every participant feel safe, respected, and able to contribute fully to the event.'
+        'PyCon Colombia is a conference organized by the Python Colombia community created for the dissemination of the Python programming language in our country and Latin America, with the objective of sharing knowledge and expanding the spaces for interaction and collaboration of its members.',
+        'We value the participation of each member of the community and we want each participant in the conference to enjoy and gain valuable experience full of knowledge and innovation. According to this code, all participants including organizers, speakers, volunteers and attendees are expected to show respect and courtesy among themselves in all aspects of the conference, its organization and the events taking place in the context of the conference.',
+        'To be more explicit than is expected of any person participating in the event and the global and local community of Python and PyCon Colombia are required to comply with the following Code of Conduct. The organizers of this event and any event in the future are subject to enforce following and complying with international and Colombian laws and the spirit of the International Python Society (Python Software Foundation).'
       ]
     },
     {
-      id: 'expected-behavior',
-      title: 'Expected behavior',
-      paragraphs: ['All participants are expected to help create a positive conference environment.'],
-      items: [
-        'Be respectful and considerate in speech and actions.',
-        'Welcome people with different backgrounds, identities, experience levels, and perspectives.',
-        'Use inclusive language and respect personal boundaries.',
-        'Follow venue, event, and staff instructions.',
-        'Report concerns when you see behavior that may put others at risk.'
-      ]
-    },
-    {
-      id: 'unacceptable-behavior',
-      title: 'Unacceptable behavior',
-      paragraphs: ['Harassment and exclusionary behavior are not tolerated at PyCon Colombia.'],
-      items: [
-        'Offensive comments related to gender, gender identity, sexual orientation, disability, physical appearance, race, ethnicity, religion, nationality, age, or technical background.',
-        'Intimidation, stalking, following, unwanted photography or recording, or sustained disruption of talks and activities.',
-        'Unwelcome sexual attention, inappropriate physical contact, or repeated unwanted communication.',
-        'Retaliation against anyone who reports an incident or supports a report.'
-      ]
-    },
-    {
-      id: 'reporting',
-      title: 'Reporting an incident',
+      id: 'code-of-conduct',
+      title: 'Code of Conduct',
       paragraphs: [
-        'If you experience or witness behavior that violates this Code of Conduct, please contact the organizing team as soon as possible.',
-        'Reports can be sent by email or shared with an organizer at the venue. The team will treat reports with care and discretion.'
+        'PyCon Colombia is dedicated to providing a conference free of harassment for all members, regardless of gender, sexual orientation, physical abilities, physical appearance, race or religion. No abuse will be tolerated by any conference participant.',
+        'All communications should be focused on a professional audience including people with different backgrounds and experiences. Sexual language is not appropriate for any event organized under our rules, including talks.'
       ],
-      items: ['Email: Hello@pycon.co', 'Include what happened, when and where it happened, and any people involved if you feel comfortable sharing that information.']
+      listTitle: 'Our goal as a community',
+      items: [
+        'Be kind to other members.',
+        'Do not insult or demean the other participants.',
+        'Behave professionally.',
+        'Remember that any conduct of harassment, sexism, racism or political division or of any instance, is not appropriate for participation within the conference or community.',
+        'Not attending the conference under the influence of alcoholic beverages.',
+        'Participants of our community of any type (Organizers, Speakers, Volunteers and Assistants) who do not comply with any of these rules will be expelled from the conference without any reimbursement at the discretion of the organizing committee of the conference.'
+      ],
+      itemsStyle: 'cards'
     },
     {
-      id: 'enforcement',
-      title: 'Code of Conduct Enforcement Procedure',
+      id: 'contact-information',
+      title: 'Contact Information',
       paragraphs: [
-        'The organizing team may take any action it deems appropriate to protect participants and preserve a respectful event environment.',
-        'Possible actions include a private warning, removal from a session, removal from the conference without refund, or escalation to venue security or local authorities when necessary.'
-      ]
-    },
-    {
-      id: 'health-safety',
-      title: 'Health & Safety Policy',
-      paragraphs: [
-        'Participants are expected to follow health, safety, accessibility, and venue guidelines communicated by PyCon Colombia staff.',
-        'If you feel unwell or need support during the event, please contact an organizer or venue staff member.'
-      ]
+        'If you have been harassed, or realize that someone else is being harassed or is violating the International Terms of the PyCon Colombia or have any problems, please contact our organizers.',
+        'Our team at the conference will also be available to collaborate and contact local security or assist you to ensure your safety. We value your presence in our events.',
+        'In case of any violation of the terms of this code of conduct by the organizers please contact the main organizer of the conference, John Roa or as a last resort to the PSF.'
+      ],
+      cta: {
+        label: 'Open report form',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSdIdwmicMIIM1LIx8W-N8R0JDyeMfo7BwxRy9LrjCuhC2LR2g/viewform'
+      }
     }
-  ] satisfies CodeOfConductSection[]
+  ] as CodeOfConductSection[]
 }

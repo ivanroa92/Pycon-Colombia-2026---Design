@@ -1,6 +1,15 @@
 import type { SVGAttributes } from 'react'
 
-import { ArrowRightIcon, MailIcon } from 'lucide-react'
+import {
+  ArrowRightIcon,
+  BanIcon,
+  BriefcaseBusinessIcon,
+  ExternalLinkIcon,
+  HeartHandshakeIcon,
+  MessageCircleOffIcon,
+  ShieldAlertIcon,
+  WineOffIcon
+} from 'lucide-react'
 
 import Link from 'next/link'
 
@@ -20,6 +29,18 @@ const SemiCircleSVG = (props: SVGAttributes<SVGElement>) => {
     </svg>
   )
 }
+
+const conductItemIcons = [
+  HeartHandshakeIcon,
+  MessageCircleOffIcon,
+  BriefcaseBusinessIcon,
+  ShieldAlertIcon,
+  WineOffIcon,
+  BanIcon
+]
+
+const reportFormUrl =
+  'https://docs.google.com/forms/d/e/1FAIpQLSdIdwmicMIIM1LIx8W-N8R0JDyeMfo7BwxRy9LrjCuhC2LR2g/viewform'
 
 const CodeOfConduct = () => {
   return (
@@ -52,9 +73,9 @@ const CodeOfConduct = () => {
                   </Link>
                 </PrimaryFlowButton>
                 <Button size='lg' variant='outline' className='rounded-lg text-base shadow-none' asChild>
-                  <Link href={`mailto:${codeOfConduct.contactEmail}`}>
-                    Contact us
-                    <MailIcon />
+                  <Link href={reportFormUrl} target='_blank' rel='noopener noreferrer'>
+                    Report form
+                    <ExternalLinkIcon />
                   </Link>
                 </Button>
               </div>
@@ -151,12 +172,41 @@ const CodeOfConduct = () => {
                     {section.paragraphs.map(paragraph => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
-                    {section.items && (
+                    {section.listTitle && (
+                      <h4 className='text-foreground pt-2 text-base font-semibold'>{section.listTitle}</h4>
+                    )}
+                    {section.items && section.itemsStyle === 'cards' && (
+                      <div className='grid gap-3 sm:grid-cols-2'>
+                        {section.items.map((item, index) => {
+                          const Icon = conductItemIcons[index] ?? ShieldAlertIcon
+
+                          return (
+                            <div key={item} className='rounded-lg border bg-background p-4'>
+                              <div className='bg-primary/10 text-primary mb-3 flex size-9 items-center justify-center rounded-md'>
+                                <Icon className='size-4' />
+                              </div>
+                              <p className='text-foreground text-sm leading-6'>{item}</p>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )}
+                    {section.items && section.itemsStyle !== 'cards' && (
                       <ul className='list-disc space-y-2 pl-5'>
                         {section.items.map(item => (
                           <li key={item}>{item}</li>
                         ))}
                       </ul>
+                    )}
+                    {section.cta && (
+                      <div className='pt-2'>
+                        <PrimaryFlowButton size='lg' asChild>
+                          <Link href={section.cta.href} target='_blank' rel='noopener noreferrer'>
+                            {section.cta.label}
+                            <ExternalLinkIcon />
+                          </Link>
+                        </PrimaryFlowButton>
+                      </div>
                     )}
                   </div>
                 </section>

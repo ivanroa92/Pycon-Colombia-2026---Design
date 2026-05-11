@@ -17,6 +17,7 @@ import type { Navigation } from '@/components/layout/header-navigation'
 const navigationData: Navigation[] = [
   {
     title: 'Schedule',
+    disabled: true,
     contentClassName: '!w-141 grid-cols-2',
     splitItems: true,
     items: [
@@ -76,6 +77,7 @@ const navigationData: Navigation[] = [
   },
   {
     title: 'Scholarships',
+    disabled: true,
     href: '/#scholarships'
   },
   {
